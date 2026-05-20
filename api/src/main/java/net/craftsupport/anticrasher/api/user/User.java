@@ -60,15 +60,14 @@ public abstract class User {
 
     /**
      * Get the original source class of this user.
-     * For Paper, this would be CommandSource.
-     * For Fabric, this would be ServerCommandSource.
+     * For Paper/Folia, this would be CommandSource.
      *
      * @return The original Object source.
      */
     public abstract Object getSource();
 
     /**
-     * Uses the platform-dependent placeholder processor mod/plugin (PlaceholderAPI, TextPlaceholderAPI) to process the placeholders in the message.
+     * Uses the platform-dependent placeholder processor plugin to process the placeholders in the message.
      * @param message The message to process.
      * @return The processed message with placeholders replaced.
      */

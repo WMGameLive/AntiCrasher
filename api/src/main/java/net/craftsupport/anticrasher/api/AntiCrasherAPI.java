@@ -16,9 +16,7 @@ public abstract class AntiCrasherAPI {
 
     /**
      * The {@link Platform} interface is implemented on each platform.
-     * For Spigot, it is implemented along with the JavaPlugin class.
-     * For Fabric, it is implemented along with the ModInitializer class.
-     * Etc, etc.
+     * For Paper/Folia, it is implemented along with the JavaPlugin class.
      *
      * @return The {@link Platform} instance.
      */
@@ -43,7 +41,7 @@ public abstract class AntiCrasherAPI {
 
     /**
      * Get the instance of SkyApi.
-     * This should only be called after the instance has been set (onEnable for spigot, onInitialize for fabric).
+     * This should only be called after the instance has been set in JavaPlugin#onEnable().
      *
      * @return The instance of {@link AntiCrasherAPI}
      * @throws IllegalStateException If the instance has not been set yet.
@@ -53,15 +51,13 @@ public abstract class AntiCrasherAPI {
             throw new IllegalStateException("""
                     The AntiCrasher API has not been initialized yet.
                     Make sure of the following things:
-                    1. AntiCrasher has loaded before your plugin / mod:
-                        - For Fabric: Make sure you have `AntiCrasher` added to your `depends` or `suggests` in `fabric.mod.json`.
-                        - For Spigot/Paper: Make sure you have `AntiCrasher` added to your `softdepend` or `depend` in `plugin.yml`.
+                    1. AntiCrasher has loaded before your plugin:
+                        - Make sure you have `AntiCrasher` added to your `softdepend` or `depend` in `plugin.yml`.
                     2. You have not implemented/shaded the AntiCrasher API:
                         - For Gradle: Make sure you are using `compileOnly` instead of `implementation` in your build.gradle(.kts).
                         - For Maven: Make sure you are using `<scope>provided</scope>` instead of `<scope>compile</scope>` in your pom.xml.
                     3. You are not calling AntiCrasherAPI#getInstance() before it has loaded.
-                        - For Spigot/Paper: The API instance is only set on AntiCrasher's onEnable() method. If you try access it before (e.g. onLoad()), it will fail.
-                        - For Fabric: Th API instance is only set on AntiCrasher's onInitialize() method.
+                        - The API instance is only set on AntiCrasher's onEnable() method. If you try access it before (e.g. onLoad()), it will fail.
                     """.stripIndent());
         }
 

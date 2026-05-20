@@ -33,7 +33,7 @@ dependencies {
 
 tasks {
     runServer {
-        minecraftVersion("1.21.1")
+        minecraftVersion("26.1.2")
 
         downloadPlugins {
             modrinth("LuckPerms", "v5.4.145-bukkit")
@@ -45,10 +45,10 @@ modrinth {
     token.set(System.getenv("MODRINTH_TOKEN"))
     projectId.set("anticrasher")
     versionNumber.set("v${rootProject.version}-plugin")
-    versionName.set("AntiCrasher Bukkit ${rootProject.version}")
+    versionName.set("AntiCrasher Paper/Folia ${rootProject.version}")
     versionType.set("release")
     uploadFile.set(tasks.shadowJar)
-    gameVersions.addAll("1.17", "1.17.1", "1.18", "1.18.1", "1.18.2", "1.19", "1.19.1", "1.19.2", "1.19.3", "1.19.4", "1.20", "1.20.1", "1.20.2", "1.20.3", "1.20.4", "1.20.5", "1.20.6", "1.21", "1.21.1", "1.21.2", "1.21.3", "1.21.4", "1.21.5", "1.21.6", "1.21.7", "1.21.8", "1.21.9", "1.21.10")
-    loaders.addAll(listOf("folia", "paper", "spigot", "bukkit", "purpur"))
+    gameVersions.addAll("26.1.2")
+    loaders.addAll(listOf("folia", "paper"))
     changelog.set(rootProject.rootDir.resolve(".github/CHANGELOG.md").readText())
 }

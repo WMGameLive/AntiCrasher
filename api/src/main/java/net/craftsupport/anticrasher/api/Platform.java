@@ -1,13 +1,13 @@
 package net.craftsupport.anticrasher.api;
 
-import info.preva1l.trashcan.Version;
 import net.craftsupport.anticrasher.api.user.User;
+import net.craftsupport.anticrasher.api.util.Version;
 
 import java.nio.file.Path;
 
 /**
  * This is the root interface for the AntiCrasher platform.
- * It is implemented in all platform main classes (JavaPlugin for spigot, ModInitializer for fabric, etc)
+ * It is implemented by the Paper/Folia JavaPlugin main class.
  */
 public interface Platform {
 
@@ -18,8 +18,8 @@ public interface Platform {
 
     /**
      *
-     * @param pluginName The plugin (or mod) name to check.
-     * @return Whether the plugin/mod is enabled or not.
+     * @param pluginName The plugin name to check.
+     * @return Whether the plugin is enabled or not.
      */
     boolean isPluginEnabled(String pluginName);
 
@@ -42,7 +42,7 @@ public interface Platform {
 
     /**
      * This is used primarily in update checking.
-     * @return either `plugin` or `mod` or `proxy`.
+     * @return The platform type.
      */
     String getPlatformType();
 }
